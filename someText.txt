@@ -1,2 +1,8 @@
 some other text example that conflicts
 some example of a text
+
+some example of a text
+
+Will this create a conflict?
+
+Yes it did.
