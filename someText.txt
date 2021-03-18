@@ -1,1 +1,1 @@
-some text example
+some other text example that conflicts
