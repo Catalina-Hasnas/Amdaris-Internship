@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes_in_C_Sharp", "Class
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array_String", "Array_String\Array_String.csproj", "{7D10A50A-F589-4B4C-BAD7-9DD67D8CDCDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operator_overloading_error_handling", "Operator_overloading_error_handling\Operator_overloading_error_handling.csproj", "{78AA01F0-F982-456F-B98F-18C4B64010E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operator_overloading_error_handling", "Operator_overloading_error_handling\Operator_overloading_error_handling.csproj", "{78AA01F0-F982-456F-B98F-18C4B64010E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Assignment", "LINQ_Assignment\LINQ_Assignment.csproj", "{C314F55D-D66A-4C51-8601-1742035D3AAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{78AA01F0-F982-456F-B98F-18C4B64010E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78AA01F0-F982-456F-B98F-18C4B64010E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78AA01F0-F982-456F-B98F-18C4B64010E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C314F55D-D66A-4C51-8601-1742035D3AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C314F55D-D66A-4C51-8601-1742035D3AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C314F55D-D66A-4C51-8601-1742035D3AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C314F55D-D66A-4C51-8601-1742035D3AAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
