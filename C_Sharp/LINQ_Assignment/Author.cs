@@ -8,12 +8,21 @@ namespace LINQ_Assignment
 {
     class Author
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
-        public int DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
-        public IEnumerable<Book> Books { get; set; }
+        public override string ToString()
+        {
+            StringBuilder res = new StringBuilder();
 
-        public override string ToString() => $"(Id: {Id}, Name: {Name}, Publish Date: {DateOfBirth})";
+            res.AppendFormat("({0})", ID);
+            res.AppendFormat(" Name: {0},", Name);
+            res.AppendFormat(" Date of Birth: {0},", DateOfBirth.ToString());
+
+
+            return res.ToString();
+        }
+
     }
 }

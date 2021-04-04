@@ -8,14 +8,15 @@ namespace LINQ_Assignment
 {
     class Book
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Title { get; set; }
         public int PublishDate { get; set; }
-        public Author Author { get; set; }
+        public int AuthorID { get; set; }
+        public List<string> Categories { get; set; }
 
-        public List<Category> Categories { get; set; }
-
-        public override string ToString() => $"(Id: {Id}, Name: {Name}, Publish Date: {PublishDate}, Author: {Author}, " +
-            $"Categories { String.Join(", ", Categories.Select(category => category.Name)) } )";
+        public override string ToString()
+        {
+            return $"({ID}) Title: {Title}, PublishDate: {PublishDate}";
+        }
     }
 }

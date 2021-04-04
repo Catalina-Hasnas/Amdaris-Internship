@@ -7,17 +7,18 @@ namespace Operator_overloading_error_handling
     {
         static void Main(string[] args)
         {
-
-            Angle a = new Angle(10, 36, 46);
-            Angle b = "4g 27' 45\"";
-
-            var c = a + b;
-
+#if DEBUG
+            Console.WriteLine("Debug version");
+#endif
+#if RELEASE
+            Console.WriteLine("Release version");
+#endif
+            //Angle a = new Angle(10, 36, 46);
+            //Angle b = "4d 27' 45\"";
+            //var c = a + b;
             //Angle result = new Angle(a.degrees + b.degrees, a.minutes + b.minutes, a.seconds + b.seconds);
-
             //Console.WriteLine("Result 1 = {0}", (string)result);
-
-            Console.WriteLine("Result 2 = {0}", (string)c);
+            //Console.WriteLine("Result 2 = {0}", (string)c);
 
             Angle canFail = new Angle();
             string input = "";
@@ -39,8 +40,10 @@ namespace Operator_overloading_error_handling
                 }
                 catch (ArgumentException ex)
                 {
-                    Console.WriteLine("Invalid input, prefered input: 0g 0' 0\"");
-                    Console.WriteLine("\n\n\nProgram will close soon, please wait for clean-up code\n\n\n");
+                    Console.WriteLine("Invalid input, prefered input: 0d 0' 0\"");
+#if DEBUG
+                    Console.WriteLine(ex.Message);
+#endif
 
                     throw new InvalidInputException(message: "User input from main failed casting to Angle",
                                                     inner: ex,
@@ -107,7 +110,7 @@ namespace Operator_overloading_error_handling
             {
                 switch (number[^1]) // equals to number[number.Length - 1]
                 {
-                    case 'g':
+                    case 'd':
                         degrees = int.Parse(number.Remove(number.Length - 1));
                         break;
                     case '\'':
@@ -126,7 +129,7 @@ namespace Operator_overloading_error_handling
 
         public static explicit operator string(Angle a)
         {
-            return $"{a.degrees}g {a.minutes}' {a.seconds}\"";
+            return $"{a.degrees}d {a.minutes}' {a.seconds}\"";
         }
 
         public static implicit operator Angle(string str)
