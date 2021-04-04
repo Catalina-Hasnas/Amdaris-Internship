@@ -37,22 +37,11 @@ namespace LINQ_Assignment
 
             Library library = new Library(AllBooks);
 
-            foreach (var book in library.Books)
-            {
-                Console.WriteLine(book.ToString());
-            }
-
-            var authors = library.AuthorsID.Join(AllAuthors,
-                authorID => authorID,
-                author => author.ID,
-                (authorID, author) => author
-                );
-
-            Console.WriteLine("\n\nBefore adding a new book\n\n");
-            foreach (var author in authors)
-            {
-                Console.WriteLine(author.ToString());
-            }
+            //var authors = library.AuthorsID.Join(AllAuthors,
+            //        authorID => authorID,
+            //        author => author.ID,
+            //        (authorID, author) => author
+            //    );
 
             library.AddBook(new Book()
             {
@@ -63,12 +52,49 @@ namespace LINQ_Assignment
                 Categories = new List<string>() { "Fiction", "Adventure" }
             });
 
-            Console.WriteLine("\n\nAfter adding a new book\n\n");
-
-            foreach (var author in authors)
+            Console.WriteLine("\n\nList of all books: \n\n");
+            foreach (var book in library.Books)
             {
-                Console.WriteLine(author.ToString());
+                Console.WriteLine(book.ToString());
+            };
+
+            Console.WriteLine("\n\nBooks published after 1980 \n\n");
+            foreach (var book in library.DisplayBooksPublishedAfter(1980))
+            {
+                Console.WriteLine(book);
             }
+
+            Console.WriteLine("\n\nBooks with drama category \n\n");
+            foreach (var book in library.DisplayBooksWithCategory("drama"))
+            {
+                Console.WriteLine(book);
+            }
+
+            Console.WriteLine("\n\nAuthors with more than 3 books \n\n");
+            foreach (var author in library.AuthorsWithMoreThanXBooks(3, AllAuthors))
+            {
+                Console.WriteLine(author);
+            }
+
+            Console.WriteLine("\n\nAuthors with more than 2 sci-fi books born before 1990 \n\n");
+            foreach (var author in library.AuthorsWithBooksInXCategoryBornBeforeYYear("sci-fi", 1990, AllAuthors))
+            {
+                Console.WriteLine(author);
+            }
+
+            Console.WriteLine("\n\nBooks gruped by decade \n\n");
+            foreach (var group in library.DisplayBooksByDecade())
+            {
+                Console.WriteLine(group.Key);
+
+                foreach (Book book in group)
+                {
+                    Console.WriteLine($"\t{book.Title}");
+                }
+            }
+            
         }
+
+        
     }
 }

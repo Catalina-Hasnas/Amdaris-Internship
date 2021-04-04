@@ -18,8 +18,7 @@ namespace LINQ_Assignment
 
             res.AppendFormat("({0})", ID);
             res.AppendFormat(" Name: {0},", Name);
-            res.AppendFormat(" Date of Birth: {0},", DateOfBirth.ToString());
-
+            res.AppendFormat(" Date of Birth: {0},", DateOfBirth.ToString("dd/MM/yyyy"));
 
             return res.ToString();
         }

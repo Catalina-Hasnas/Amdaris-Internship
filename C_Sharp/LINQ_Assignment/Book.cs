@@ -16,7 +16,9 @@ namespace LINQ_Assignment
 
         public override string ToString()
         {
-            return $"({ID}) Title: {Title}, PublishDate: {PublishDate}";
+            string categories = String.Join(", ", Categories);
+            return $"({ID}) Title: {Title}, PublishDate: {PublishDate}" +
+                $"\n\t Categories: ({categories})";
         }
     }
 }
