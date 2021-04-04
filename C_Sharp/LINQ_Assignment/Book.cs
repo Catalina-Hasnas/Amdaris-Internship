@@ -16,9 +16,15 @@ namespace LINQ_Assignment
 
         public override string ToString()
         {
+            StringBuilder res = new StringBuilder();
             string categories = String.Join(", ", Categories);
-            return $"({ID}) Title: {Title}, PublishDate: {PublishDate}" +
-                $"\n\t Categories: ({categories})";
+
+            res.AppendFormat($"({ID})");
+            res.AppendFormat($" Title: {Title}");
+            res.AppendFormat($" Publish Date: {PublishDate}");
+            res.AppendFormat($" Categories: {categories}");
+
+            return res.ToString();
         }
     }
 }

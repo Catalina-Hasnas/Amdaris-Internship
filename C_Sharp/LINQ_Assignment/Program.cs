@@ -37,11 +37,17 @@ namespace LINQ_Assignment
 
             Library library = new Library(AllBooks);
 
-            //var authors = library.AuthorsID.Join(AllAuthors,
-            //        authorID => authorID,
-            //        author => author.ID,
-            //        (authorID, author) => author
-            //    );
+            var authors = library.AuthorsID.Join(AllAuthors,
+                    authorID => authorID,
+                    author => author.ID,
+                    (authorID, author) => author
+                    );
+
+            Console.WriteLine("\n\nList of all authors that have at least one book in the library: \n\n");
+            foreach (var author in authors)
+            {
+                Console.WriteLine(author);
+            };
 
             library.AddBook(new Book()
             {

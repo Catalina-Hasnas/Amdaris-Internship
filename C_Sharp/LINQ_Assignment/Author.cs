@@ -16,8 +16,8 @@ namespace LINQ_Assignment
         {
             StringBuilder res = new StringBuilder();
 
-            res.AppendFormat("({0})", ID);
-            res.AppendFormat(" Name: {0},", Name);
+            res.AppendFormat($"({ID})");
+            res.AppendFormat($" {Name}");
             res.AppendFormat(" Date of Birth: {0},", DateOfBirth.ToString("dd/MM/yyyy"));
 
             return res.ToString();
