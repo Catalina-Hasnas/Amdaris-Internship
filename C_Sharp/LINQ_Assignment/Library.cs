@@ -91,7 +91,6 @@ namespace LINQ_Assignment
                                 (author, authorInf) => authorInf)
                                 // takes the filtered list of authors that have books of certain category and filters them further by date of birth
                                 .Where(authorInf => authorInf.DateOfBirth <= year);
-
             return result;
         }
 
@@ -100,8 +99,6 @@ namespace LINQ_Assignment
             var result = Books
                 .GroupBy(book => book.PublishDate / 10 * 10);
             return result;
-
-            
         }
 
         
