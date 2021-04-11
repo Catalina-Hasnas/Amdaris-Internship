@@ -64,6 +64,8 @@ namespace LINQ_Assignment
                 Categories = new List<string>() { "Sci-fi", "Dystopian Fiction" }
             });
 
+            library.RemoveBook(16);
+
             Console.WriteLine("\n\nList of all books: \n\n");
             foreach (var book in library.Books)
             {
