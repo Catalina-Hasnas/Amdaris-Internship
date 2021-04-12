@@ -12,7 +12,6 @@ namespace VisitorPattern
         {
             Length = length;
         }
-
         public int Length { get; }
         
     }

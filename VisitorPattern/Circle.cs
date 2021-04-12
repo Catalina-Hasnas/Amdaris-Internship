@@ -6,8 +6,6 @@
         {
             Radius = radius;
         }
-
         public int Radius { get; }
-
     }
 }

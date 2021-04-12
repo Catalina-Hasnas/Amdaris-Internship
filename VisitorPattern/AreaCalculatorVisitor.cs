@@ -13,12 +13,10 @@ namespace VisitorPattern
         {
             this.subscribers = new List<ISubscriber>();
         }
-
         public void AddSubscriber(ISubscriber subscriber)
         {
             this.subscribers.Add(subscriber);
         }
-
         public void Visit(Shape shape)
         {
             float area;
@@ -42,14 +40,10 @@ namespace VisitorPattern
                         message: "shape is not a recognized shape",
                         paramName: nameof(shape));
             }
-
-            
         }
         public void Publish(Tuple<Shape, float> item)
         {
             this.subscribers.ForEach(s => s.Notify(item));
         }
-
-
     }
 }
