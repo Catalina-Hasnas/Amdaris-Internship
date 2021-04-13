@@ -70,7 +70,6 @@ namespace Events
                     OnPartyStarted(this, partyE);
                 }
             }
-            get => partyStarted;
         }
     }
 

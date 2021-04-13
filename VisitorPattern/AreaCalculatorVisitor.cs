@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VisitorPattern
 {
-    class AreaCalculatorVisitor: IVisitor
+    class AreaCalculatorVisitor : IVisitor
     {
         private List<ISubscriber> subscribers;
         public AreaCalculatorVisitor()
@@ -19,29 +19,18 @@ namespace VisitorPattern
         }
         public void Visit(Shape shape)
         {
-            float area;
-
-            switch (shape)
+            (Shape, float) item = shape switch
             {
-                case Square square:
-                    area = square.Length * square.Length;
-                    Publish(new Tuple<Shape, float>(square, area));
-                    break;
-                case Circle circle:
-                    area = (float)(circle.Radius * circle.Radius * Math.PI);
-                    Publish(new Tuple<Shape, float>(circle, area));
-                    break;
-                case Rectangle rectangle:
-                    area = rectangle.Length * rectangle.Width;
-                    Publish(new Tuple<Shape, float>(rectangle, area));
-                    break;
-                default:
-                    throw new ArgumentException(
+                Square square => (square, square.Length * square.Length),
+                Circle circle => (circle, (float)(circle.Radius * circle.Radius * Math.PI)),
+                Rectangle rectangle => (rectangle, rectangle.Length * rectangle.Width),
+                _ => throw new ArgumentException(
                         message: "shape is not a recognized shape",
-                        paramName: nameof(shape));
-            }
+                        paramName: nameof(shape))
+            };
+            Publish(item);
         }
-        public void Publish(Tuple<Shape, float> item)
+        public void Publish((Shape, float) item)
         {
             this.subscribers.ForEach(s => s.Notify(item));
         }
