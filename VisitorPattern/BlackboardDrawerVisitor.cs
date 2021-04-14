@@ -6,24 +6,17 @@ namespace VisitorPattern
     {
         public void Visit(Shape shape)
         {
-
-            switch (shape)
+            string response = shape switch
             {
-                case Square square:
-                    Console.WriteLine($"Drawing square with length {square.Length} on blackboard");
-                    break;
-                case Circle circle:
-                    Console.WriteLine($"Drawing circle with radius {circle.Radius} on blackboard");
-                    break;
-                case Rectangle rectangle:
-                    Console.WriteLine($"Drawing rectangle with length {rectangle.Length} and width {rectangle.Width} on blackboard");
-                    break;
-                default:
-                    throw new ArgumentException(
+                (Square square) => $"Drawing square with length {square.Length} on blackboard",
+                (Circle circle) => $"Drawing circle with radius {circle.Radius} on blackboard",
+                (Rectangle rectangle) => $"Drawing rectangle with length {rectangle.Length} and width {rectangle.Width} on blackboard",
+                _ => throw new ArgumentException(
                         message: "shape is not a recognized shape",
-                        paramName: nameof(shape));
-            }
-            
+                        paramName: nameof(shape))
+            };
+
+            Console.WriteLine(response);
         }
     }
 }

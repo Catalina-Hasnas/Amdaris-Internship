@@ -14,7 +14,7 @@ namespace VisitorPattern
                 new Square(12),
                 new Circle(13),
                 new Square(4),
-                new Rectangle(0,4)
+                new Rectangle(2,4)
             };
 
             var andrei = new Engineer();
