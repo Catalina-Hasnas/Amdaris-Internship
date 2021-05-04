@@ -1,0 +1,7 @@
+BEGIN TRAN
+
+TRUNCATE TABLE dbo.TexasCustomers;
+SELECT * FROM dbo.TexasCustomers;
+
+COMMIT
+ROLLBACK

@@ -17,7 +17,8 @@ CREATE TABLE [dbo].[Customers]
     [City]	NVARCHAR (50) NOT NULL,
     [Fax]	NVARCHAR (50),
 	[MonthlyDiscount] BIGINT NOT NULL,
-	[PackageId] BIGINT NOT NULL
+	[PackageId] BIGINT,
+	[MonthlyPayment] BIGINT,
 
 ) ON [PRIMARY];
 GO
@@ -70,8 +71,8 @@ INSERT INTO [dbo].[Customers]
            ('Danielle Davidson', 'Florida', 'Jacksonville', '904-753-4462', 5, 3),
            ('Angel Battle', 'Arizona', 'Phoenix', '928-504-1235', 20, 4),
            ('Steven Friend', 'Texas', 'FREDONIA', '606-855-0428', 0, 2),
-           ('Virginia Miller', 'Michigan', 'Westland', '260-482-5353', 40, 1),
-           ('Daisy Thompson', 'Texas', 'El Paso', NULL, 0, 3),
+           ('Virginia Miller', 'Michigan', 'Westland', '260-482-5353', 40, NULL),
+           ('Daisy Thompson', 'Texas', 'El Paso', NULL, 0, NULL),
            ('Keisha Catron', 'Minnesota', 'Detroit Lakes', '218-844-6067', 30, 2),
            ('Esther Smith', 'Louisiana', 'Kenner', NULL, 25, 4),
            ('David Goodman', 'California', 'DOWNIEVILLE', '951-733-7716', 0, 5)
